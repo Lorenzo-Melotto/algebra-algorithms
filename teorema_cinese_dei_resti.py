@@ -10,7 +10,7 @@ def main() -> None:
     for i in range(eq_num):
         a: int = read_int(f"Input the coefficient of the equation {i+1}: ")
         b: int = read_int(f"Input the known term of the equation {i+1}: ")
-        n: int = read_int(f"Input the module of the equation {i+1}: ")
+        n: int = read_int(f"Input the modulo of the equation {i+1}: ")
         eqs.append(equation.eq(a % n, b % n, n))
         print()
 
@@ -26,7 +26,10 @@ def main() -> None:
             return
         # transform the system in standard form
         eq.a, eq.b = (eq.a * inv)%eq.n, (eq.b * inv)%eq.n
-        print(f"  {eq.a}x = {eq.b} mod {eq.n}")
+        if eq.a != 1:
+            print(f"  {eq.a}x = {eq.b} mod {eq.n}")
+        else:
+            print(f"  x = {eq.b} mod {eq.n}")
         R *= eq.n
     print()
 
