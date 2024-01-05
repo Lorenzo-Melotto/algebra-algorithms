@@ -56,6 +56,7 @@ def main():
     res: list[list[float]] = matrix_multiplication(m1, m2)
 
     # print the result
+    print("Result:")
     print_matrix(res)
 
 if __name__ == "__main__":
